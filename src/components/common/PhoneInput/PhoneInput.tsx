@@ -32,8 +32,11 @@ export const PhoneInputComponent: React.FC<PhoneInputProps> = ({
         defaultCode="US"
         value={value}
         onChangeText={onChangeText}
-        onChangeFormattedText={(text, code) => {
-          onChangeCountryCode(`+${code.callingCode[0]}`);
+        onChangeCountry={(code) => {
+          const callingCode = code.callingCode[0];
+          if(callingCode) {
+            onChangeCountryCode(`+${code.callingCode[0]}`);
+          }
         }}
         containerStyle={styles.phoneContainer}
         textContainerStyle={styles.textContainer}
