@@ -7,17 +7,12 @@
       "@screens/*": ["./src/screens/*"],
       "@navigation/*": ["./src/navigation/*"],
       "@store/*": ["./src/store/*"],
-      "@services/*": ["./src/services/*"],
+      "@services": ["./src/services"],
       "@utils/*": ["./src/utils/*"],
-      "@types/*": ["./src/types/*"],
-      "@theme/*": ["./src/theme/*"]
+      "@types": ["./src/types"],
+      "@theme": ["./src/theme"]
     }
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    ".expo/types/**/*.ts",
-    "expo-env.d.ts"
-  ]
+  "include": ["**/*.ts", "**/*.tsx"]
 }
 
