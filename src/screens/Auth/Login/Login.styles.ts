@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, spacing } from '@theme';
+import { colors, spacing, typography } from '@theme';
 
 export const styles = StyleSheet.create({
   container: {
@@ -50,7 +50,7 @@ export const styles = StyleSheet.create({
   },
   signUpLink: {
     color: colors.primary,
-    fontWeight: '600',
+    fontWeight: typography.fontWeights.semibold,
   },
 });
 

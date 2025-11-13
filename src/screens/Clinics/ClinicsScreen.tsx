@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useCallback, useMemo } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 import { View, FlatList, StyleSheet, ListRenderItem } from "react-native";
 import { Card, Typography, Input, LoadingSpinner } from "@components/common";
-import { mockApiService } from "@services";
 import { colors, spacing } from "@theme";
 import { useDebounce } from "@hooks/useDebounced";
 import { useClinicData } from "@hooks/useClinicData";
@@ -32,7 +31,7 @@ export const ClinicsScreen: React.FC = () => {
     }));
   };
 
-  const { data: clinics, loading, error, refetch } = useClinicData<Clinic>(loadClinics, "clinic");
+  const { data: clinics, loading } = useClinicData<Clinic>(loadClinics, "clinic");
 
   const displayedClinics = useMemo(() => {
     const activeQuery = debouncedSearch.trim().toLowerCase();
