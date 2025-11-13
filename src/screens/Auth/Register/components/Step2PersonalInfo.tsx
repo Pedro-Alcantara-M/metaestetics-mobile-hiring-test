@@ -9,7 +9,6 @@ import {
   PhoneInput,
   DatePicker,
 } from "@components/common";
-import { spacing } from "@theme";
 import { registerStep2ValidationSchema } from "@utils/validation";
 import { RegisterData } from "@types";
 import { GENDER_OPTIONS } from "@utils/constants";
@@ -94,7 +93,6 @@ export const Step2PersonalInfo: React.FC<Step2PersonalInfoProps> = ({
             countryCode={values.countryCode}
             onChangeText={(phone) => handlePhoneChange(phone, setFieldTouched, setFieldValue)}
             onChangeCountryCode={(code) => {
-              console.log("Selected country code:", code);
               setFieldValue("countryCode", code);
             }}
             error={

@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
   },
   phoneContainer: {
     width: '100%',
-    height: 55,
+    height: 53,
     borderWidth: 1,
     borderColor: colors.border,
     borderRadius: 8,

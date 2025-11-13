@@ -1,7 +1,13 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { User } from '@types';
-import { AuthState } from './types';
-import { loginThunk, registerThunk, logoutThunk, checkAuthThunk } from './authThunks';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { User } from "@types";
+import { AuthState } from "./types";
+import {
+  loginThunk,
+  registerThunk,
+  logoutThunk,
+  checkAuthThunk,
+  updateThunkProfile,
+} from "./authThunks";
 
 const initialState: AuthState = {
   user: null,
@@ -11,7 +17,7 @@ const initialState: AuthState = {
 };
 
 const authSlice = createSlice({
-  name: 'auth',
+  name: "auth",
   initialState,
   reducers: {
     setUser: (state, action: PayloadAction<User>) => {
@@ -69,9 +75,21 @@ const authSlice = createSlice({
         state.isAuthenticated = true;
       }
     });
+    builder.addCase(updateThunkProfile.pending, (state) => {
+      state.isLoading = true;
+      state.error = null;
+    });
+    builder.addCase(updateThunkProfile.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.user = action.payload;
+      state.error = null;
+    });
+    builder.addCase(updateThunkProfile.rejected, (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload as string;
+    });
   },
 });
 
 export const { setUser, clearError } = authSlice.actions;
 export default authSlice.reducer;
-

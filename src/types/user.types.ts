@@ -14,3 +14,8 @@ export interface User {
 
 export interface UserProfile extends Omit<User, 'id' | 'createdAt' | 'updatedAt'> {}
 
+export interface UpdateProfileArgs {
+  userId: string;
+  updates: Partial<User>;
+}
+
